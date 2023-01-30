@@ -18,7 +18,7 @@ const Coins = () => {
 
   // page array
 
-  const btn = new Array(132).fill(1);
+  const btn = new Array(124).fill(1);
 
   // changing page function
 
@@ -41,7 +41,7 @@ const Coins = () => {
         );
 
         setCoins(data);
-        // console.log(data);
+
         setLoading(false);
       } catch (e) {
         setLoading(false);
@@ -79,6 +79,7 @@ const Coins = () => {
                   symbol={coin.symbol}
                   price={coin.current_price}
                   currencySymbol={currencySymbol}
+                  changeCurrency={changeCurrency}
                 />
               ))}
             </HStack>
