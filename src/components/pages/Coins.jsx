@@ -27,12 +27,6 @@ const Coins = () => {
     setLoading(true);
   };
 
-  // change currency function
-  const changeCurrency = (e) => {
-    setCurrency(e);
-    setLoading(true);
-  };
-
   useEffect(() => {
     const fetchCoinsApi = async () => {
       try {
@@ -61,7 +55,14 @@ const Coins = () => {
           <Loader />
         ) : (
           <>
-            <RadioGroup value={currency} onChange={changeCurrency} p={"8"}>
+            <RadioGroup
+              value={currency}
+              onChange={(e) => {
+                setCurrency(e);
+                setLoading(true);
+              }}
+              p={"8"}
+            >
               <HStack spacing={"5"}>
                 <Radio value={"inr"}>INR</Radio>
                 <Radio value={"eur"}>EUR</Radio>
@@ -79,7 +80,6 @@ const Coins = () => {
                   symbol={coin.symbol}
                   price={coin.current_price}
                   currencySymbol={currencySymbol}
-                  changeCurrency={changeCurrency}
                 />
               ))}
             </HStack>
